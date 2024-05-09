@@ -1,16 +1,8 @@
 
-function fof() {
-  for (const coder of coders) {
-    tbody.innerHTML += `<tr>
-  <th scope="row">${coder.id}</th>
-  <td>${coder.name}</td>
-  <td>${coder.lastName}</td>
-  <td>${coder.email}</td>
- </tr>`;
-  }
-}
+ export function index(coders,tbody) {
 
- export function fore(coders,tbody) {
+  tbody.innerHTML = ""
+
   coders.forEach((coder) => {
     tbody.innerHTML += `<tr>
     <th scope="row">${coder.id}</th>
@@ -21,27 +13,15 @@ function fof() {
   })
 }
 
-
-
-function fori() {
-  for (const key in coders) {
-    tbody.innerHTML += `<tr>
-    <th scope="row">${coders[key].id}</th>
-    <td>${coders[key].name}</td>
-    <td>${coders[key].lastName}</td>
-    <td>${coders[key].email}</td>
-  </tr>`;
-  }
+export function create(name,lastName,email,coders) {
+  
+  const newCoder = {
+        
+    id: Date.now(),
+    name: name.value,
+    lastName: lastName.value,
+    email: email.value
+    
+  } //Ingresar datos en el forms ingresados desde chrome con el forms  
+  coders.push(newCoder)
 }
-
-function fo() {
-  for (let i = 0; i < coders.length; i++) {
-    tbody.innerHTML += `<tr>
-    <th scope="row">${coders[i].id}</th>
-    <td>${coders[i].name}</td>
-    <td>${coders[i].lastName}</td>
-    <td>${coders[i].email}</td>
-  </tr>`;
-  }
-}
-
