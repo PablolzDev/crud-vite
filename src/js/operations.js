@@ -1,7 +1,5 @@
-
- export function index(coders,tbody) {
-
-  tbody.innerHTML = ""
+export function index(coders, tbody) {
+  tbody.innerHTML = "";
 
   coders.forEach((coder) => {
     tbody.innerHTML += `<tr>
@@ -9,19 +7,35 @@
     <td>${coder.name}</td>
     <td>${coder.lastName}</td>
     <td>${coder.email}</td>
-  </tr>`
-  })
+    <td>
+    <button type="button" data-id=${coder.id} class =" btn btn-primary">Details</button>
+    <button type="button" data-id=${coder.id} class="btn btn-danger">Delete</button>
+    <button type="button" data-id=${coder.id}  class =" btn btn-warning">Edit</button> 
+    
+    
+    
+
+    </td>
+
+  </tr>`;
+  });
 }
 
-export function create(name,lastName,email,coders) {
-  
+// onclick="deleteCoder(${coder.id}
+
+export function create(name, lastName, email, coders) {
   const newCoder = {
-        
     id: Date.now(),
     name: name.value,
     lastName: lastName.value,
-    email: email.value
-    
-  } //Ingresar datos en el forms ingresados desde chrome con el forms  
-  coders.push(newCoder)
+    email: email.value,
+  }; //Ingresar datos en el forms ingresados desde chrome con el forms
+  coders.push(newCoder);
+}
+export function deleteItem(coders,idv) {
+  coders.forEach((coder,index) => {
+    if(coder.id == idv){
+       coders.splice(index,1)
+    }
+ });
 }
